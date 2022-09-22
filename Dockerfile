@@ -13,6 +13,10 @@ RUN apt install -y wget kali-linux-headless
 RUN useradd -m -p "saHz2oQLytbl2" "kali"
 RUN usermod -a -G sudo kali
 
+# Setup zsh
+RUN chsh -s $(which zsh)
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Install Exploit Development tools
 RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb
 RUN python3 -m pip install --upgrade pip
@@ -20,13 +24,10 @@ RUN python3 -m pip install --upgrade pwntools
 RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
 RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.zshrc
+RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
 
 # Setup my vimrc
 RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.vimrc
-
-# Setup zsh
-RUN chsh -s $(which zsh)
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Setup xrdp
 RUN apt-get install -y kali-desktop-xfce xorg xrdp
