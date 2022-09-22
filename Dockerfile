@@ -32,7 +32,7 @@ RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.
 # Fix vim in tmux
 RUN echo 'alias tmux="TERM=screen-256color-bce tmux"' >> ~/.zshrc
 RUN echo 'alias tmux="TERM=screen-256color-bce tmux"' >> ~/.bashrc
-RUN echo 'set -g default-terminal "xterm"' >> ~/.tmux.conf
+RUN echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
 
 # Setup xrdp
 RUN apt-get install -y kali-desktop-xfce xorg xrdp
