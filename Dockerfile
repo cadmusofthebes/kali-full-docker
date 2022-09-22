@@ -24,6 +24,10 @@ RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
 # Setup my vimrc
 RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.vimrc
 
+# Setup zsh
+RUN chsh -s $(which zsh)
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Setup xrdp
 RUN apt-get install -y kali-desktop-xfce xorg xrdp
 RUN sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
