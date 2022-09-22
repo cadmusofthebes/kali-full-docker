@@ -17,6 +17,9 @@ RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
 RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
 
+# Setup my vimrc
+RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.vimrc
+
 # Setup a kali user with the password of kali
 RUN useradd -m -p "saHz2oQLytbl2" "kali"
 
