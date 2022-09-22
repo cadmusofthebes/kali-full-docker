@@ -15,6 +15,7 @@ RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pwntools
 RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
 
 # Setup a kali user with the password of kali
 RUN useradd -m -p "saHz2oQLytbl2" "kali"
