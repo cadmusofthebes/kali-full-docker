@@ -19,7 +19,7 @@ RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pwntools
 RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
-RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
+RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.zshrc
 
 # Setup my vimrc
 RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.vimrc
