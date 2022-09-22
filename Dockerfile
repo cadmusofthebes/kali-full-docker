@@ -13,7 +13,7 @@ RUN apt install -y wget kali-linux-headless
 RUN useradd -m -p "saHz2oQLytbl2" "kali"
 RUN usermod -a -G sudo kali
 
-# Install CTF tools
+# Install Exploit Development tools
 RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pwntools
