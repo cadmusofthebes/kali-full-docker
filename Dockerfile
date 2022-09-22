@@ -36,4 +36,4 @@ RUN update-rc.d xrdp defaults
 
 # Cleanup everything
 RUN apt-get -qy autoremove
-CMD ["bash"]
+CMD ["/bin/zsh"]
