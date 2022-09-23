@@ -18,7 +18,7 @@ RUN chsh -s $(which zsh)
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Exploit Development tools
-RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb
+RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb git
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pwntools
 RUN bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
@@ -29,9 +29,11 @@ RUN echo "export LC_CTYPE=C.UTF-8" >> ~/.bashrc
 # Setup my vimrc
 RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/vimrc -o ~/.vimrc
 
-# Fix vim in tmux
+# Setup tmux
+RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 RUN echo 'alias tmux="TERM=screen-256color-bce tmux"' >> ~/.zshrc
 RUN echo 'alias tmux="TERM=screen-256color-bce tmux"' >> ~/.bashrc
+RUN curl https://raw.githubusercontent.com/cadmusofthebes/bash/main/tmux.conf -o ~/.tmux.conf
 RUN echo 'set -g default-terminal "screen-256color"' >> ~/.tmux.conf
 
 # Setup xrdp
