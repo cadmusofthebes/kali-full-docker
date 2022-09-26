@@ -15,7 +15,8 @@ RUN usermod -a -G sudo kali
 
 # Setup zsh
 RUN chsh -s $(which zsh)
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# OMZ does not seem to like Docker containers. Keep this line disabled until I figure it out
+#RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Exploit Development tools
 RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb git foremost
