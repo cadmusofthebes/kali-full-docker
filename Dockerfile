@@ -19,7 +19,7 @@ RUN chsh -s $(which zsh)
 #RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Exploit Development tools
-RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb git foremost default-jdk
+RUN apt install -y gcc-multilib python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential gdb git foremost default-jdk vim-gui-common
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install --upgrade pwntools
 RUN git clone https://github.com/longld/peda.git ~/peda
